@@ -1,5 +1,9 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/nodeauth');
+var uristring =
+    process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://localhost/nodeauth';
+mongoose.connect(uristring);
 var db = mongoose.connection;
 
 // User schema
