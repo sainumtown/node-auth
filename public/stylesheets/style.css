@@ -1,0 +1,42 @@
+body {
+  padding-top: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+footer{
+  background: #eee;
+  height: 40px;
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 10px;
+}
+
+ul.success li,ul.info li, ul.error li{
+  margin: 20px 0 20px 0;
+  padding: 15px;
+  border:1px solid transparent;
+  border-radius: 5px;
+  list-style: none;
+}
+
+ul.success li{
+  color: green;
+  background: silver;
+  border-color: silver;
+}
+
+ul.info li{
+  color: green;
+  background: silver;
+  border-color: silver;
+}
+
+ul.error li{
+  color: red;
+  background: silver;
+  border-color: silver;
+}
