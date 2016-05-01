@@ -55,8 +55,8 @@ app.use(session({
         saveUninitialized: true
     },
     store: new MongoStore({
-		url: process.env.MONGOLAB_URI
-        // mongooseConnection:  mongoose.connection  
+		url: process.env.MONGOLAB_URI,
+        mongooseConnection:  mongoose.connection  
     })
 }));
 
