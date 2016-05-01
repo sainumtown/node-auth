@@ -1,8 +1,7 @@
 var mongoose = require('mongoose');
 var uristring =
-    process.env.MONGOLAB_URI ||
-    process.env.MONGOHQ_URL ||
-    'mongodb://localhost/nodeauth';
+    'mongodb://heroku_g6sd9fs3:kr7f1tcbvoud7ausivrn8j8scn@ds023478.mlab.com:23478/heroku_g6sd9fs3' ||
+    'mongodb://127.0.0.1:27017/nodeauth';
 mongoose.connect(uristring);
 var db = mongoose.connection;
 
