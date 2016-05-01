@@ -15,6 +15,7 @@ var multer = require('multer');
 var flash = require('connect-flash');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
+var MongoStore = require('connect-mongo')(session);
 var db = mongoose.connection;
 
 var routes = require('./routes/index');
@@ -39,10 +40,23 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // handle express session
+// app.use(session({
+  // secret:'secret',
+  // saveUninitialized: true,
+  // resave: true
+// }));
+
 app.use(session({
-  secret:'secret',
-  saveUninitialized: true,
-  resave: true
+    secret: 'foobar',
+    cookie: {
+        secure: false,
+        maxage: 1160000000,
+        resave: true,
+        saveUninitialized: true
+    },
+    store: new MongoStore({
+        mongooseConnection:  mongoose.connection  /*<== error happens here*/
+    })
 }));
 
 // passport
@@ -68,6 +82,7 @@ app.use(expressValidator({
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use(flash());
 app.use(function (req,res,next){
